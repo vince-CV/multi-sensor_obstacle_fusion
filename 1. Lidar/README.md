@@ -19,8 +19,11 @@ Ransac, Random Sample Consensus, and is a method for detecting outliers in data.
 ### Point Cloud Clustering
 Perform Euclidean clustering, and build KD-Tree to do efficient nearest neighbor search for clustering.
 
-Euclidean Clustering, based on nearest neighbor search. KD-Tree KD-Tree speeds up look up time from O(n) to O(log(n)) (tree allows you to better break up your search space.) By grouping points into regions in a KD-Tree, it can avoid calculating distance for possibly thousands of points just because they are not considered in a close enough region.
+Euclidean Clustering, based on nearest neighbor search. KD-Tree KD-Tree speeds up look up time from O(n) to O(log(n)) (tree allows you to better break up your search space.) By grouping points into regions in a KD-Tree, it can avoid calculating distance for possibly thousands of points just because they are not considered in a close enough region. 
 
+KD-Tree： organize data spatially, and is a binary tree that splits points between alternating axes. 
+
+Having a balanced tree that evenly splits regions improves the search time for finding points later. To improve the tree, insert points that alternate between splitting the x region and the y region evenly.
 
 
 
