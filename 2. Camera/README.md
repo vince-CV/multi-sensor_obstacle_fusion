@@ -9,6 +9,18 @@
 ## Project: Track Object In 3D Space
 Detect and track objects from the benchmark KITTI dataset. Classify those objects and project them into three dimensions. Fuse those projections together with lidar data to create 3D objects to track over time.
 
+## Collision Detection
+Detect other cars on the road using raw lidar data from real self-driving car, Carla. Implement custom RANSAC and euclidean clustering algorithms.
+
+With calculating the distance
+- Cloud Point with CVM (constant velocity model)
+
+Without calculate the distance: it is possible to measure the time to collision by observing relative height change on the image sensor.
+- Deep Neural Network with Bounding Box
+- Keypoint detection (distinctive texture patterns)
+
+
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)

@@ -8,8 +8,15 @@
 ## Project: Lidar Obstacle Detection
 Detect other cars on the road using raw lidar data from real self-driving car, Carla. Implement custom RANSAC and euclidean clustering algorithms.
 
+
+### Point Cloud Filtering
+- Voxel Grid:
+Voxel grid filtering will create a cubic grid and will filter the cloud by only leaving a single point per voxel cube.
+- Region of Interest:
+A boxed region is defined and any points outside that box are removed.
+
 ### Point Cloud Segmentation
-Planar model to segment point cloud data using RANSAC.
+Planar model to segment point cloud data using **RANSAC**.
 
 Ransac, Random Sample Consensus, and is a method for detecting outliers in data.
 - each iteration randomly picks subset of points
@@ -17,14 +24,13 @@ Ransac, Random Sample Consensus, and is a method for detecting outliers in data.
 - iteration with the most inliers to the model is best
 
 ### Point Cloud Clustering
-Perform Euclidean clustering, and build KD-Tree to do efficient nearest neighbor search for clustering.
+Perform **Euclidean clustering**, and build **KD-Tree** to do efficient **nearest neighbor search** for clustering.
 
 Euclidean Clustering, based on nearest neighbor search. KD-Tree KD-Tree speeds up look up time from O(n) to O(log(n)) (tree allows you to better break up your search space.) By grouping points into regions in a KD-Tree, it can avoid calculating distance for possibly thousands of points just because they are not considered in a close enough region. 
 
 KD-Tree： organize data spatially, and is a binary tree that splits points between alternating axes. 
 
 Having a balanced tree that evenly splits regions improves the search time for finding points later. To improve the tree, insert points that alternate between splitting the x region and the y region evenly.
-
 
 
 
