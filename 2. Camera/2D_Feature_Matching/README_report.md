@@ -44,32 +44,25 @@ Plot 1: The number of keypoints from different detector.
 
 And here are the visualized results of keypoint detector:
 
-**SHI-TOMASI** keypoint detection:<br>
-Shi-Tomasi keypoint cannot provided rotation and scale infomation. The keypoint detection distribution is across the image, and the more rapid the pixels changes area the more keypoints detected such as the vehicle edge, bridge edge and tree. But there are some of them looked noisey.
+**SHI-TOMASI**: Shi-Tomasi keypoint cannot provided rotation and scale infomation. The keypoint detection distribution is across the image, and the more rapid the pixels changes area the more keypoints detected such as the vehicle edge, bridge edge and tree. But there are some of them looked noisey.
 <img src="images/Shi-Tomasi.png" width="1000" height="300" />
 
-**HARRIS** keypoint detection:<br>
-Harris's keypoint cannot provide rotation and scale information, and its layout seems more sparse than Shi-Tomasi, and keypoints are apart from each other becasue of the non-maximum suppression.
+**HARRIS**: Harris's keypoint cannot provide rotation and scale information, and its layout seems more sparse than Shi-Tomasi, and keypoints are apart from each other becasue of the non-maximum suppression.
 <img src="images/Harris.png" width="1000" height="300" />
 
-**FAST** keypoint detection:<br>
-FAST detector cannot provide rotation and scale information as well. The layout of keypoints is similiar to that of Shi-Tomasi: keypoints detection are dense where the pixels rapid changes but more dense.
+**FAST**: FAST detector cannot provide rotation and scale information as well. The layout of keypoints is similiar to that of Shi-Tomasi: keypoints detection are dense where the pixels rapid changes but more dense.
 <img src="images/FAST.png" width="1000" height="300" />
 
-**SIFT** keypoint detection:<br>
-SIFT detector provided rotation and scale infomation. Tiny features are detected in lower layer in image pyramids such as tree's or road's texture, and larger features are catch in upper layers in pyramids because the keypoint's size become larger.
+**SIFT**: SIFT detector provided rotation and scale infomation. Tiny features are detected in lower layer in image pyramids such as tree's or road's texture, and larger features are catch in upper layers in pyramids because the keypoint's size become larger.
 <img src="images/SIFT.png" width="1000" height="300" />
 
-**ORB** keypoint detection:<br>
-SIFT detector provided rotation and scale infomation. The size of the keypiont is relatively larger, also the distribution seems more centered. Interesting finding that it doesn't detect any keypoint around the vehicle's shadow.
+**ORB**: SIFT detector provided rotation and scale infomation. The size of the keypiont is relatively larger, also the distribution seems more centered. Interesting finding that it doesn't detect any keypoint around the vehicle's shadow.
 <img src="images/ORB.png" width="1000" height="300" />
 
-**BRISK** keypoint detection:<br>
-BRISK detector provided rotation and scale infomation. The keypoints are detected where the pixel rapidly changes.
+**BRISK**: BRISK detector provided rotation and scale infomation. The keypoints are detected where the pixel rapidly changes.
 <img src="images/BRISK.png" width="1000" height="300" />
 
-**AKAZE** keypoint detection:<br>
-AKAZE detector provided rotation and scale infomation. The size of all keypoints are similiar. 
+**AKAZE**: AKAZE detector provided rotation and scale infomation. The size of all keypoints are similiar. 
 <img src="images/AKAZE.png" width="1000" height="300" />
 
 
