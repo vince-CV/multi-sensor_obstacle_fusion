@@ -27,6 +27,7 @@ Objective: Identify and track reliable and stable features through a sequence of
 * Next, descriptor extraction and matching using brute force and also the FLANN approach. 
 * Last, test the various algorithms in different combinations and compare them with regard to some performance measures. 
 
+<img src="2D_Feature_Matching/images/O_B.png" width="1000" height="150" />
 
 
 ## Dependencies for Running Locally
