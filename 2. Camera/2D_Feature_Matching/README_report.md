@@ -28,7 +28,7 @@ This part is to implement KNN matching for descriptor distance ratio test in _ma
 
 
 ### MP.7 Performance Evaluation 1
-Plot 1: The number of keypoints from different detector.
+_Table 1: The number of keypoints from different detector._
 | Detector  |`SHITOMASI`| `HARRIS`  |   `ORB`   |    `FAST`   |    `SIFT`   |   `BRISK`   |   `AKAZE`   |
 |:---------:|:---------:|:---------:|:---------:|:-----------:|:-----------:|:-----------:|:-----------:|
 |  Frame 1  |    125    |     15    |    92     |     419     |     138     |     264     |     166     |
@@ -67,6 +67,79 @@ And here are the visualized results of keypoint detector:
 
 
 ### MP.8 Performance Evaluation 2
+_Table 2: The number of descriptor matching from combination of detector & descriptor. The mathcing is Brute_Force with the K-Nearest-Neighborhood (descriptor distance ratio = 0.8). 
+
+|**BRISK**  |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+| Frame 1-2 |    44     |   10   |  41   |  35    |  18    |   33    |   35   |
+| Frame 2-3 |    37     |   8    |  44   |  35    |  22    |   32    |   39   |
+| Frame 3-4 |    39     |   7    |  38   |  38    |  19    |   32    |   38   |
+| Frame 4-5 |    38     |   10   |  44   |  37    |  21    |   36    |   43   |
+| Frame 5-6 |    38     |   16   |  37   |  26    |  18    |   36    |   39   |
+| Frame 6-7 |    36     |   12   |  37   |  40    |  27    |   36    |   42   |
+| Frame 7-8 |    38     |   13   |  34   |  39    |  15    |   31    |   39   |
+| Frame 8-9 |    38     |   18   |  35   |  40    |  18    |   27    |   36   |
+| Frame 9-0 |    39     |   17   |  36   |  45    |  27    |   41    |   44   |
+
+|**BRIEF**  |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+| Frame 1-2 |    47     |   11   |  30   |  30    |  25    |   36    |   38   |
+| Frame 2-3 |    49     |   11   |  18   |  18    |  26    |   32    |   37   |
+| Frame 3-4 |    44     |   11   |  22   |  22    |  25    |   35    |   40   |
+| Frame 4-5 |    44     |   13   |  29   |  29    |  30    |   36    |   40   |
+| Frame 5-6 |    46     |   19   |  28   |  28    |  21    |   34    |   39   |
+| Frame 6-7 |    46     |   19   |  36   |  36    |  31    |   32    |   44   |
+| Frame 7-8 |    46     |   14   |  34   |  34    |  19    |   39    |   39   |
+| Frame 8-9 |    47     |   21   |  28   |  28    |  18    |   31    |   39   |
+| Frame 9-0 |    44     |   17   |  36   |  36    |  28    |   37    |   44   |
+
+|  **ORB**  |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+| Frame 1-2 |    27     |   21   |  33   |  43    |   -    |   27    |   35   |
+| Frame 2-3 |    34     |   11   |  36   |  44    |   -    |   34    |   38   |
+| Frame 3-4 |    31     |   10   |  38   |  41    |   -    |   31    |   36   |
+| Frame 4-5 |    37     |   14   |  38   |  45    |   -    |   37    |   37   |
+| Frame 5-6 |    35     |   20   |  41   |  39    |   -    |   35    |   33   |
+| Frame 6-7 |    39     |   15   |  37   |  42    |   -    |   39    |   36   |
+| Frame 7-8 |    32     |   13   |  35   |  38    |   -    |   32    |   34   |
+| Frame 8-9 |    30     |   19   |  37   |  44    |   -    |   30    |   37   |
+| Frame 9-0 |    34     |   18   |  42   |  48    |   -    |   34    |   40   |
+
+| **FREAK** |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+| Frame 1-2 |    39     |   11   |  33   |  36    |   21   |   35    |   31   |
+| Frame 2-3 |    42     |   10   |  23   |  36    |   23   |   35    |   39   |
+| Frame 3-4 |    38     |   9    |  28   |  31    |   21   |   35    |   41   |
+| Frame 4-5 |    35     |   11   |  27   |  35    |   23   |   39    |   32   |
+| Frame 5-6 |    39     |   15   |  27   |  34    |   14   |   33    |   33   |
+| Frame 6-7 |    37     |   18   |  25   |  38    |   24   |   41    |   39   |
+| Frame 7-8 |    33     |   11   |  28   |  34    |   17   |   32    |   37   |
+| Frame 8-9 |    39     |   18   |  21   |  36    |   15   |   34    |   39   |
+| Frame 9-0 |    39     |   15   |  28   |  43    |   31   |   37    |   39   |
+
+| **SIFT**  |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+| Frame 1-2 |    46     |   11   |  39   |  44    |   37   |   34    |   35   |
+| Frame 2-3 |    47     |   11   |  45   |  44    |   36   |   35    |   39   |
+| Frame 3-4 |    45     |   11   |  44   |  40    |   34   |   36    |   38   |
+| Frame 4-5 |    42     |   13   |  40   |  42    |   40   |   37    |   43   |
+| Frame 5-6 |    45     |   21   |  37   |  42    |   36   |   33    |   39   |
+| Frame 6-7 |    43     |   15   |  41   |  41    |   37   |   37    |   42   |
+| Frame 7-8 |    45     |   13   |  41   |  39    |   30   |   31    |   39   |
+| Frame 8-9 |    48     |   22   |  39   |  40    |   39   |   34    |   36   |
+| Frame 9-0 |    44     |   18   |  42   |  38    |   39   |   36    |   44   |
+
+| **AKAZE** |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+| Frame 1-2 |     -     |    -   |   -   |   -    |    -   |    -    |   38   |
+| Frame 2-3 |     -     |    -   |   -   |   -    |    -   |    -    |   39   |
+| Frame 3-4 |     -     |    -   |   -   |   -    |    -   |    -    |   42   |
+| Frame 4-5 |     -     |    -   |   -   |   -    |    -   |    -    |   42   |
+| Frame 5-6 |     -     |    -   |   -   |   -    |    -   |    -    |   37   |
+| Frame 6-7 |     -     |    -   |   -   |   -    |    -   |    -    |   46   |
+| Frame 7-8 |     -     |    -   |   -   |   -    |    -   |    -    |   39   |
+| Frame 8-9 |     -     |    -   |   -   |   -    |    -   |    -    |   37   |
+| Frame 9-0 |     -     |    -   |   -   |   -    |    -   |    -    |   44   |
 
 
 ### MP.9 Performance Evaluation 3
