@@ -28,7 +28,9 @@ This part is to implement KNN matching for descriptor distance ratio test in _ma
 
 
 ### MP.7 Performance Evaluation 1
-_Table 1: The number of keypoints from different detector._
+
+_Table_ 1: The number of keypoints from different detector.
+
 | Detector  |`SHITOMASI`| `HARRIS`  |   `ORB`   |    `FAST`   |    `SIFT`   |   `BRISK`   |   `AKAZE`   |
 |:---------:|:---------:|:---------:|:---------:|:-----------:|:-----------:|:-----------:|:-----------:|
 |  Frame 1  |    125    |     15    |    92     |     419     |     138     |     264     |     166     |
@@ -67,7 +69,7 @@ And here are the visualized results of keypoint detector:
 
 
 ### MP.8 Performance Evaluation 2
-_Table 2: The number of descriptor matching from combination of detector & descriptor. The mathcing is Brute_Force with the K-Nearest-Neighborhood (descriptor distance ratio = 0.8). 
+_Table_ 2-7: The number of descriptor matching from combination of detector & descriptor. The mathcing is Brute_Force with the K-Nearest-Neighborhood (descriptor distance ratio = 0.8). 
 
 |**BRISK**  |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
 |:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
@@ -143,9 +145,40 @@ _Table 2: The number of descriptor matching from combination of detector & descr
 
 
 ### MP.9 Performance Evaluation 3
+_Table_ 8-9: The timing data for detector and descriptor accordingly. In this table, the time is calucated as the average in 10 images.
+
+Detector average running time (s):
+
+|           |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+|  `BRISK`  |  0.021    | 0.775  | 0.014 | 0.002  | 0.237  | 0.375   | 0.193  |
+|  `BRIEF`  |  0.018    | 0.770  | 0.015 | 0.002  | 0.237  | 0.375   | 0.205  |
+|  `ORB`    |  0.019    | 0.777  | 0.014 | 0.003  |  N/A   | 0.408   | 0.182  |
+|  `FREAK`  |  0.199    | 0.812  | 0.014 | 0.003  | 0.240  | 0.402   | 0.189  |
+|  `AKAZE`  |   N/A     |  N/A   |  N/A  |  N/A   |  N/A   |  N/A    | 0.182  |
+|  `SIFT`   |  0.025    | 0.771  | 0.010 | 0.003  | 0.211  | 0.381   | 0.177  |
+
+Descriptor average running time (s):
+
+|           |`SHITOMASI`|`HARRIS`| `ORB` | `FAST` | `SIFT` | `BRISK` | `AKAZE`|
+|:---------:|:---------:|:------:|:-----:|:------:|:------:|:-------:|:------:|
+|  `BRISK`  |   0.383   | 0.330  | 0.330 | 0.334  | 0.308  |  0.330  | 0.387  |
+|  `BRIEF`  |   0.001   | 0.001  | 0.001 | 0.001  | 0.001  |  0.001  | 0.001  |
+|  `ORB`    |   0.001   | 0.001  | 0.008 | 0.002  |  N/A   |  0.007  | 0.004  |
+|  `FREAK`  |   0.058   | 0.041  | 0.006 | 0.060  | 0.040  |  0.042  | 0.049  |
+|  `AKAZE`  |   N/A     |  N/A   |  N/A  |  N/A   |  N/A   |  N/A    | 0.168  |
+|  `SIFT`   |   0.037   | 0.027  | 0.094 | 0.045  | 0.119  |  0.048  | 0.037  |
 
 
+## Finale
+From the timing results in MP.9: (">" means "faster than")
+1. for detector: `FAST` > `ORB` > others.
+2. for descriptor: `BRIEF` > `ORB` > others.
 
+Also compared the results from MP.7 and MP.8, I'd recommend the best three picks are:
+1. `FAST` + `BRIEF`.
+2. `FAST` + `ORB`.
+3. `ORB`  + `BRIEF`
 
 
 
