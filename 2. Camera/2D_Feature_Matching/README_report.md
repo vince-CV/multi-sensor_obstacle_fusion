@@ -23,6 +23,13 @@ Implemented descriptors `BRIEF`, `ORB`, `FREAK`, `AKAZE` and `SIFT` in _matching
 ### MP.5 Descriptor Matching
 There are two matching options: 1. Brute_Force (readily-available), 2. FLANN. (value type change required because the poential opencv bug). FLANN is implemenetd using opencv API `cv::DescriptorMatcher::create()`.  
 
+**`FAST` + `BRIEF`**：
+<img src="images/F_B.png" width="1000" height="300" />
+**`FAST` + `ORB`**
+<img src="images/F_O.png" width="1000" height="300" />
+**`ORB`  + `BRIEF`**
+<img src="images/O_B.png" width="1000" height="300" />
+
 ### MP.6 Descriptor Distance Ratio
 This part is to implement KNN matching for descriptor distance ratio test in _matching2D.cpp_, which keeps the best 2 matches per keypoint.
 
