@@ -19,6 +19,9 @@ Without calculate the distance: it is possible to measure the time to collision 
 - Deep Neural Network with Bounding Box
 - Keypoint detection (distinctive texture patterns)
 
+### Tracking Image Featrues
+Objective: Identify and track reliable and stable features through a sequence of images.
+- Locating keypoints in image;
 
 
 ## Dependencies for Running Locally

@@ -1,5 +1,7 @@
 /* \author Aaron Brown */
 // Quiz on implementing kd tree
+#ifndef __KDTREE_H__
+#define __KDTREE_H__
 
 #include "../../render/render.h"
 
@@ -25,7 +27,6 @@ struct KdTree
 	: root(NULL)
 	{}
 
-
 	void insertRecursive(Node* &node, uint depth, std::vector<float> point, int id)
 	{
 		if (node == NULL)
@@ -41,7 +42,6 @@ struct KdTree
 
 	}
 
-
 	void insert(std::vector<float> point, int id)
 	{
 		// TODO: Fill in this function to insert a new point into the tree
@@ -49,40 +49,21 @@ struct KdTree
 		insertRecursive(root, 0, point, id);
 	}
 
-/*
-	void insertRecursive(Node **node, int depth, std::vector<float> point, int id)
+	bool checkInTargetBox3D(std::vector<float> src, std::vector<float> dst, float d)
 	{
-		if (*node == nullptr)
+		if ((src[0]>=(dst[0]-d)) && (src[0]<=(dst[0]+d)) && (src[1]>=(dst[1]-d)) && (src[1]<=(dst[1]+d)) && (src[2]>=(dst[2]-d)) && (src[2]<=(dst[2]+d)) )
 		{
-			*node = new Node(point, id);
-		}
-		else
-		{
-			int d = depth % 2;
-
-			if( point[d] < (*node)->point[d] )
-			{
-				insertRecursive( &((*node)->left), depth++, point, id );
-			}
-			else
-			{
-				insertRecursive( &((*node)->right), depth++, point, id );
-			}
+			return true;
 		}
 
+		return false;
 	}
 
-	void insert(std::vector<float> point, int id)
+	float getDistance3D(std::vector<float> src, std::vector<float> dst)
 	{
-		// TODO: Fill in this function to insert a new point into the tree
-		// the function should create a new node and place correctly with in the root
-
-		insertRecursive(&root, 0, point, id);
-
+		return sqrt((src[0]-dst[0])*(src[0]-dst[0]) + (src[1]-dst[1])*(src[1]-dst[1])+(src[2]-dst[2])*(src[2]-dst[2]));
 	}
 
-*/
-	
 	bool checkInTargetBox(std::vector<float> src, std::vector<float> dst, float d)
 	{
 		if ((src[0]>=(dst[0]-d)) && (src[0]<=(dst[0]+d)) && (src[1]>=(dst[1]-d)) && (src[1]<=(dst[1]+d)) )
@@ -96,6 +77,25 @@ struct KdTree
 	float getDistance(std::vector<float> src, std::vector<float> dst)
 	{
 		return sqrt((src[0]-dst[0])*(src[0]-dst[0]) + (src[1]-dst[1])*(src[1]-dst[1]));
+	}
+
+	void searchRecursive3D( Node* node, std::vector<float> target,int depth, float distanceTol, std::vector<int>& ids)
+	{
+		if (node!=NULL)
+		{
+			if (checkInTargetBox3D(node->point, target, distanceTol))
+			{
+				if (getDistance3D(node->point, target) < distanceTol)
+					ids.push_back(node->id);
+			}
+
+			// % 2 for 2D Point Cloud;
+			// % 3 for 3D Point Cloud;
+			if (target[depth % 3] - distanceTol  < node->point[depth % 3])
+				searchRecursive3D(node->left, target, depth+1, distanceTol, ids);
+			if (target[depth % 3] + distanceTol  > node->point[depth % 3])
+				searchRecursive3D(node->right, target, depth+1, distanceTol, ids);
+		}
 	}
 	
 	
@@ -126,11 +126,19 @@ struct KdTree
 		searchRecursive(root, target, 0, distanceTol, ids);
 		return ids;
 	}
+
+	std::vector<int> search3D(std::vector<float> target, float distanceTol)
+	{
+		std::vector<int> ids;
+		searchRecursive3D(root, target, 0, distanceTol, ids);
+		return ids;
+	}
 	
+
+
 
 
 };
 
 
-
-
+#endif
