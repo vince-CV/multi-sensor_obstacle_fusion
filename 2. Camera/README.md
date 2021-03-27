@@ -21,7 +21,12 @@ Without calculate the distance: it is possible to measure the time to collision 
 
 ### Tracking Image Featrues
 Objective: Identify and track reliable and stable features through a sequence of images.
-- Locating keypoints in image;
+
+* First, load images, setting up data structures and putting everything into a ring buffer to optimize memory load. 
+* Then, integrate several keypoint detectors such as HARRIS, FAST, BRISK and SIFT and compare them with regard to number of keypoints and speed. 
+* Next, descriptor extraction and matching using brute force and also the FLANN approach. 
+* Last, test the various algorithms in different combinations and compare them with regard to some performance measures. 
+
 
 
 ## Dependencies for Running Locally
