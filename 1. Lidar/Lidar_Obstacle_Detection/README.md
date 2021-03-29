@@ -1,7 +1,7 @@
 # Sensor Fusion Self-Driving Car Course
 
 **Lidar** sensing gives us high resolution data by sending out thousands of laser signals. 
-These lasers bounce off objects, returning to the sensor where we can then determine how far away objects are by timing how long it takes for the sig】
+These lasers bounce off objects, returning to the sensor where we can then determine how far away objects are by timing how long it takes for the signal to return. 
 
 1. Lidar point cloud filtering.
 2. Lidar point cloud segmentation using RANSAC.
