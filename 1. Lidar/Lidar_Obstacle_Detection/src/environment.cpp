@@ -96,7 +96,7 @@ void cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer, ProcessPointCloud
     //renderPointCloud(viewer,inputCloud,"inputCloud");
     
     pcl::PointCloud<pcl::PointXYZI>::Ptr filterCloud;
-    filterCloud = pointProcessorI->FilterCloud(inputCloud, 0.2 , Eigen::Vector4f (-25, -6, -3, 1), Eigen::Vector4f ( 25, 6, 5, 1));
+    filterCloud = pointProcessorI->FilterCloud(inputCloud, 0.2 , Eigen::Vector4f (-10, -6, -3, 1), Eigen::Vector4f ( 25, 6, 5, 1));
     //renderPointCloud(viewer,filterCloud,"filterCloud");
 
     std::pair<pcl::PointCloud<pcl::PointXYZI>::Ptr, pcl::PointCloud<pcl::PointXYZI>::Ptr> segmentCloud = pointProcessorI->RansacPlane(filterCloud, 100, 0.2);
@@ -105,7 +105,7 @@ void cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer, ProcessPointCloud
 
 
     //std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> cloudClusters = pointProcessorI->Clustering(segmentCloud.first, 0.6, 10, 5000);
-    std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> cloudClusters = pointProcessorI->ClusteringKD(segmentCloud.first, 0.3, 8, 100);
+    std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> cloudClusters = pointProcessorI->ClusteringKD(segmentCloud.first, 0.3, 10, 500);
 
     int clusterID = 0;
     std::vector<Color> colors = {Color(1, 1, 0), Color(0, 1, 1), Color(1, 0, 1)};
@@ -116,7 +116,7 @@ void cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer, ProcessPointCloud
         Box bbx = pointProcessorI->BoundingBox(cluster);
         renderBox(viewer, bbx, clusterID);
 
-        clusterID++;
+        ++clusterID;
     }
 
   
@@ -139,7 +139,7 @@ void initCamera(CameraAngle setAngle, pcl::visualization::PCLVisualizer::Ptr& vi
         case XY : viewer->setCameraPosition(-distance, -distance, distance, 1, 1, 0); break;
         case TopDown : viewer->setCameraPosition(0, 0, distance, 1, 0, 1); break;
         case Side : viewer->setCameraPosition(0, -distance, 0, 0, 0, 1); break;
-        case FPS : viewer->setCameraPosition(-10, 0, 0, 0, 0, 1);
+        case FPS : viewer->setCameraPosition(-5, 0, 0, 0, 0, 1);
     }
 
     if(setAngle!=FPS)

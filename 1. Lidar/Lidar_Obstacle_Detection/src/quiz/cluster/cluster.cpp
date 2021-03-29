@@ -83,8 +83,10 @@ void Proximity(vector<vector<float>> points, int index, KdTree* tree, float dist
 	cluster.push_back(index);
 
 	std::vector<int> nearby = tree->search(points[index], distanceTol);
+	//const std::vectpr<float> point = points[index];
+	//const std::vector<int> nearby = tree->search(point, distanceTol);
 
-	for (int i : nearby)
+	for (const int i : nearby)
 	{
 		if(!visited[i])
 		{
@@ -107,7 +109,7 @@ std::vector<std::vector<int>> euclideanCluster(const std::vector<std::vector<flo
 	{
 		if(visited[i]==false)
 		{
-			vector<int> cluster;
+			std::vector<int> cluster;
 			Proximity(points, i, tree, distanceTol, cluster, visited);
 			clusters.push_back(cluster);
 		}

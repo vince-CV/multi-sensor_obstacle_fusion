@@ -314,26 +314,26 @@ std::vector<typename pcl::PointCloud<PointT>::Ptr> ProcessPointClouds<PointT>::C
   
     for (int i=0; i<cloud->points.size(); i++) 
     {
-        PointT pt = cloud->points[i];
+        const PointT pt = cloud->points[i];
+        const std::vector<float> vec = {pt.x, pt.y, pt.z };
 
-        std::vector<float> vec;
-        vec.push_back(pt.x);
-        vec.push_back(pt.y);
-        vec.push_back(pt.z); 
     	tree->insert(vec, i); 
         points.push_back(vec);
     }
 
-    std::vector<std::vector<int>> clusters_vec = euclideanCluster(points, tree, 3.0);
+    const std::vector<std::vector<int>> clusters_vec = euclideanCluster(points, tree, clusterTolerance);
+
+    delete tree;
+    tree = NULL;
 
     // Render clusters
   	// int clusterId = 0;
 
-  	for(std::vector<int> cluster : clusters_vec)
+  	for(const std::vector<int> cluster : clusters_vec)
   	{
         typename pcl::PointCloud<PointT>::Ptr cloudCluster (new pcl::PointCloud<PointT>);
 
-  		for(int index: cluster)
+  		for(const int index: cluster)
         {
   			cloudCluster->points.push_back(cloud->points[index]);
         }
@@ -341,7 +341,6 @@ std::vector<typename pcl::PointCloud<PointT>::Ptr> ProcessPointClouds<PointT>::C
         cloudCluster->width = cloudCluster->points.size();
         cloudCluster->height = 1;
         cloudCluster->is_dense = true;
-
 
         clusters.push_back(cloudCluster);
         
