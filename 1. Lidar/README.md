@@ -32,7 +32,7 @@ KD-Tree： organize data spatially, and is a binary tree that splits points betw
 
 Having a balanced tree that evenly splits regions improves the search time for finding points later. To improve the tree, insert points that alternate between splitting the x region and the y region evenly.
 
-<img src="https://github.com/awbrown90/SensorFusionHighway/blob/master/media/ObstacleDetectionFPS.gif" width="700" height="400" />
+<img src="https://github.com/udacity/SFND_Lidar_Obstacle_Detection/blob/master/media/ObstacleDetectionFPS.gif" width="700" height="400" />
 
 
 
