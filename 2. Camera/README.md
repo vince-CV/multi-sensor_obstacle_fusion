@@ -21,7 +21,7 @@ Without calculate the distance: it is possible to measure the time to collision 
 ## Combining 2D Camera and 3D Lidar
 1. Combine the tracked feature points within the camera images with the 3D Lidar points. Geometrically project the Lidar points into the camera.
 2. Homogeneous coordinates (齐次坐标系/投影坐标系) to map Lidar point cloud data into 2D image plane. (Camera & Lidar calibration using Intrinsic & Extrinsic matrix)
-<img src="images/transfer.png" width="800" height="150" />
+<img src="images/transfer.png" width="600" height="150" />
 3. Using DNN model to detect vehicles in an image to properly cluster and combine 2D feature tracks and 3D lidar points.
 4. 2D feature tracks + 3D Lidar points = 3D vehicle tracks.
 
