@@ -6,8 +6,6 @@
 - Project the camera image into three dimensions. 
 - Fuse the projection into three dimensions to fuse with lidar data.
 
-## Project: Track Object In 3D Space
-Detect and track objects from the benchmark KITTI dataset. Classify those objects and project them into three dimensions. Fuse those projections together with lidar data to create 3D objects to track over time.
 
 ## Collision Detection
 Detect other cars on the road using raw lidar data from real self-driving car, Carla. Implement custom RANSAC and euclidean clustering algorithms.
@@ -19,7 +17,18 @@ Without calculate the distance: it is possible to measure the time to collision 
 - Deep Neural Network with Bounding Box
 - Keypoint detection (distinctive texture patterns)
 
-### Tracking Image Featrues
+
+## Combining 2D Camera and 3D Lidar
+1. Combine the tracked feature points within the camera images with the 3D Lidar points. Geometrically project the Lidar points into the camera.
+2. Homogeneous coordinates (齐次坐标系/投影坐标系) to map Lidar point cloud data into 2D image plane. (Camera & Lidar calibration using Intrinsic & Extrinsic matrix)
+<img src="images/transfer.png" width="1000" height="150" />
+3. Using DNN model to detect vehicles in an image to properly cluster and combine 2D feature tracks and 3D lidar points.
+4. 2D feature tracks + 3D Lidar points = 3D vehicle tracks.
+
+
+
+
+### Project 1: Tracking 2D Image Featrues
 Objective: Identify and track reliable and stable features through a sequence of images.
 
 * First, load images, setting up data structures and putting everything into a ring buffer to optimize memory load. 
@@ -28,6 +37,10 @@ Objective: Identify and track reliable and stable features through a sequence of
 * Last, test the various algorithms in different combinations and compare them with regard to some performance measures. 
 
 <img src="2D_Feature_Matching/images/O_B.png" width="1000" height="150" />
+
+### Project 2: Track Object In 3D Space
+Detect and track objects from the benchmark KITTI dataset. Classify those objects and project them into three dimensions. Fuse those projections together with lidar data to create 3D objects to track over time.
+
 
 
 ## Dependencies for Running Locally
