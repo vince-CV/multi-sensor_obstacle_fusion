@@ -6,11 +6,11 @@
 2. Lidar point cloud segmentation using RANSAC.
 3. Lidar point could clustering using KD-tree & Nearest Neighbor.
 
-Raw point cloud data:
-<img src="images/raw.png" width="500" height="150" />
+Raw point cloud data:<br>
+<img src="images/raw.png" width="500" height="300" />
 
-Processed point cloud data:
-<img src="images/processed.png" width="500" height="150" />
+Processed point cloud data:<br>
+<img src="images/processed.png" width="500" height="300" />
 
 
 ## Installation
