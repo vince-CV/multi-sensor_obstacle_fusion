@@ -12,7 +12,7 @@ To compute the time-to-collision based on Lidar, this part would follow the Cons
 ```cpp
 TTC = (d1 * dT) / (d0 - d1);
 ```
-Apart from preparing the Lidar Point clouds, it is important to make it robust against outliers which could results in faulty estimation. To tackle the outliers problem, there are mant approaches on hands, such as PCA, DBSCAN... but in this project a statistic methods has been leveraged. The algorithm is simple: 
+Apart from preparing the Lidar Point clouds, it is important to make it robust against outliers which could results in faulty estimation. To tackle the outliers problem, there are mant approaches on hands, such as PCA, DBSCAN... but in this project a statistic method has been leveraged. The algorithm is simple: 
 1. calucate `mean` & standard derivative `std`.
 2. choose a threshold as `mean - n * std` for outlier removal. (n = 1, 2, or 3, in this project n = 2)
 <img src="images/outlier.png" width="1000" height="150" />
