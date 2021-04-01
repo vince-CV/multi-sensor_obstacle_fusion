@@ -177,7 +177,7 @@ Descriptor average running time (s):
 |  `SIFT`   |   0.037   | 0.027  | 0.094 | 0.045  | 0.119  |  0.048  | 0.037  |
 
 
-## Finale
+## Conclusion
 From the timing results in MP.9: (">" means "faster than")
 1. for detector: `FAST` > `ORB` > others.
 2. for descriptor: `BRIEF` > `ORB` > others.
