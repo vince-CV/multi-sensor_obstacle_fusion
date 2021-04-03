@@ -25,10 +25,17 @@ Find all keypoint matches that belong to each 3D object, by checking whether the
 
 In this project, a RANSAC based appraoch has been developed. The idea is to by calculateing the prespective relationship (Homography matrix)`cv::findHomography()` between keypoints in the bounding box from different frame, it can use RANSAC (`cv::RANSAC`) for inlier keypoints estimation and inlier matches as well.
 
-<img src="images/matches.png" width="1000" height="400" />
+<img src="images/matches.png" width="1000" height="370" />
 
 Once all the keypint matches within the bounding boxes, then compute TTC estimate.
 
 
 ### FP.4 Compute Camera-based TTC
 Compute the time-to-collision in second for all matched 3D objects using only keypoint correspondences from the matched bounding boxes between current and previous frame.
+
+To compute the time-to-collision based on Lidar, this part would follow the Constant Velocity Model and calculate the TTC from:
+```cpp
+TTC = -dT / (1 - meanDistRatio);  
+
+TTC = -dT / (1 - medianDistRatio);   // with outlier
+```
