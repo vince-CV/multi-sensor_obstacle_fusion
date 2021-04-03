@@ -21,9 +21,12 @@ After outlier removal, the closest lidar point to the ego vehicle is picked for 
 
 
 ### FP.3 Associate Keypoint Correspondences with Bounding Boxes
-Find all keypoint matches that belong to each 3D object, by checking whether the corresponding keypoints are within the region of interest in the camera image. One problem can be addressed as outliers removal. From the forum, this can be solved by leveraging mean of all the Euclidean distances between keypoint matches and then remove those are too far from the mean. In this project, a RANSAC based appraoch has been developed.
-The idea is to by calculateing the prespective relationship (Homography matrix)`cv::findHomography()` between keypoints in the bounding box from different frame, it can use RANSAC (`cv::RANSAC`) for inlier keypoints estimation and inlier matches as well.
-<img src="images/matches.png" width="1000" height="600" />
+Find all keypoint matches that belong to each 3D object, by checking whether the corresponding keypoints are within the region of interest in the camera image. One problem can be addressed as outliers removal. From the forum, this can be solved by leveraging mean of all the Euclidean distances between keypoint matches and then remove those are too far from the mean. 
+
+In this project, a RANSAC based appraoch has been developed. The idea is to by calculateing the prespective relationship (Homography matrix)`cv::findHomography()` between keypoints in the bounding box from different frame, it can use RANSAC (`cv::RANSAC`) for inlier keypoints estimation and inlier matches as well.
+
+<img src="images/matches.png" width="1000" height="400" />
+
 Once all the keypint matches within the bounding boxes, then compute TTC estimate.
 
 
