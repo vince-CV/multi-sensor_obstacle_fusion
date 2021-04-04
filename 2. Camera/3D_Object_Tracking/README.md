@@ -41,7 +41,7 @@ TTC = -dT / (1 - medianDistRatio);   // with outlier
 ```
 This part in the project is using the previous solution for TTC estimate problem, which is based on median distance ration. 
 
-<img src="images/results.png" width="900" height="270" />
+<img src="images/results.png" width="1000" height="300" />
 
 The 2D feature matching is completed in previous project, after integrating that code and the Lidar-Camera fusion TCC estimate system could be ready for performance validation. 
 
