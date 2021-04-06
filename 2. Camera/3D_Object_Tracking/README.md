@@ -85,37 +85,20 @@ But in practice the CVM assumption is too ideal to get remained. Thus, when the 
 
 
 ### FP.6 Performance Evaluation 2
-Run several detector / descriptor combinations and look at the differences in TTC estimation. To visualize the TTC_camera from a wide variety of combination of detectors and descriptors, the TTC data from lidar and camera are saved into csv file `data_ttc.csv`. For individual detector, the ttc_camera data with each descriptors are shown along the frame index.
+Run several detector / descriptor combinations and look at the differences in TTC estimation. To visualize the TTC_camera from a wide variety of combination of detectors and descriptors, the TTC data from lidar and camera are saved into csv file `data_ttc.csv`. In the plots below, for individual detector, the ttc_camera data with each descriptors are shown along the frame index.
 
-Note that: 1. BF matching and NN selection get employed for tests; 2. when there is not enough feature matching pairs or exceptions, the TTC was set to 0 for sake of process conveniency.
+Note that: 1. BF matching and NN selection get employed for tests; 2. when there is not enough feature matching pairs or exceptions, the TTC was set to 0 for sake of process conveniency. 3. Plots data has been filtered from high and negative values.
 
-**_SHITOMASI_detector_**：
+**_Detection_Variations_**：
 
-<img src="images/SHITOMASI_data.png" width="500" height="400" />
+<img src="images/dst.png"  />
 
-**_HARRIS_detector_**：
+In the plots below, for individual descriptor, the ttc_camera data with each detector are shown along the frame index. 
 
-<img src="images/HARRIS_data.png" width="500" height="400" />
+**_Descriptor_Variations_**：
 
-**_ORB_detector_**：
+<img src="images/dct.png"  />
 
-<img src="images/ORB_data.png" width="500" height="400" />
-
-**_SIFT_detector_**：
-
-<img src="images/SIFT_data.png" width="500" height="400" />
-
-**_FAST_detector_**：
-
-<img src="images/FAST_data.png" width="500" height="400" />
-
-**_BRISK_detector_**：
-
-<img src="images/BRISK_data.png" width="500" height="400" />
-
-**_AKAZE_detector_**：
-
-<img src="images/AKAZE_data.png" width="500" height="400" />
 
 From above plots, `SIFT` & `AKAZE` detector seems to be better candidate in terms of agreement of TTC measuring. In order to dive deeper into the analysis, let's review some cases of failure as below: from observation the failure could occur if:
 
