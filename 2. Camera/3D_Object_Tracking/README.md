@@ -1,6 +1,5 @@
 # Camera 2D Object Tracking: Camera & Lidar Fusion
 
-Algorithm pipeline:
 <img src="images/ttc.png" />
 
 ### FP.1 Match 3D Objects

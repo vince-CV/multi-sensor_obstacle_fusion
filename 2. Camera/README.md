@@ -48,7 +48,7 @@ Detect and track objects from the benchmark KITTI dataset. Classify those object
 * Then associate bounding boxes between current and previous frame using keypoint matches (tracking 3D object boudning box).
 * Last, loop over all bounding box matching pairs, 1. compute Lidar-based TTC, and 2. associate the bounding box with the keypoints it contains and calculate Camera-based TTC.
 
-<img src="3D_Object_Tracking/images/results.png" width="500" height="150" />
+<img src="3D_Object_Tracking/images/results.png" width="1000" height="300" />
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
