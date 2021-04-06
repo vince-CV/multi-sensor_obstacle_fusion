@@ -137,7 +137,7 @@ To evaluate the performance of the camera-based and lidar-based TTC estimation, 
 
 Here are candidates plot from `BRIEF` descriptor series, also the top picks from previous projects.
 
-<img src="images/data_plot.png" width="1200" height="700" />
+<img src="images/data_plot.png" width="1200" height="550" />
 
 Even though the Lidar-based TTC is an estimation not perfect, and there are outliers in the Lidar-based TTC. By ignoring the outliers we could evaluate the correlation between two measures. From the original data trend, the `SIFT`+`BRIEF`, `BRISK`+`BRIEF`, `FAST`+`BRIEF`, `SHITOMASI`+`BRIEF`, `AKAZE`+`BRIEF`, `FAST`+`ORB` could be filtered out for further analysis. But there are outliers in camera-based TTC estimation from `BRISK`+`BRIEF` and `FAST`+`ORB`. 
 
