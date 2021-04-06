@@ -41,7 +41,14 @@ Objective: Identify and track reliable and stable features through a sequence of
 ### Project 2: Track Object In 3D Space
 Detect and track objects from the benchmark KITTI dataset. Classify those objects and project them into three dimensions. Fuse those projections together with lidar data to create 3D objects to track over time.
 
+* First, load images, setting up data structures and putting everything into a ring buffer to optimize memory load. 
+* Then using YOLO object detector to detect and classify vehicles.
+* Then read and crop Lidar data, mapping Lidar point cloud into camera coordinates system, then associate/cluster Lidar points with camera-based ROI/bounding boxes.
+* Next, integrate several keypoint detectors & descriptor extraction and matching descriptor using brute force and also the FLANN approach. 
+* Then associate bounding boxes between current and previous frame using keypoint matches (tracking 3D object boudning box).
+* Last, loop over all bounding box matching pairs, 1. compute Lidar-based TTC, and 2. associate the bounding box with the keypoints it contains and calculate Camera-based TTC.
 
+<img src="3D_Object_Tracking/images/results.png" width="500" height="150" />
 
 ## Dependencies for Running Locally
 * cmake >= 3.7

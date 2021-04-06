@@ -1,7 +1,7 @@
 # Camera 2D Object Tracking: Camera & Lidar Fusion
 
-
-
+Algorithm pipeline:
+<img src="images/ttc.png" />
 
 ### FP.1 Match 3D Objects
 Implemented the method "matchBoundingBoxes". The alogorithm is to related bounding boxes in previous and current frame, by using the knowledge from feature matching.
