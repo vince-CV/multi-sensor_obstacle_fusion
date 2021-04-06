@@ -91,13 +91,13 @@ Note that: 1. BF matching and NN selection get employed for tests; 2. when there
 
 **_Detection_Variations_**：
 
-<img src="images/dst.png"  />
+<img src="images/dst.png" width="1000" height="500"  />
 
 In the plots below, for individual descriptor, the ttc_camera data with each detector are shown along the frame index. 
 
 **_Descriptor_Variations_**：
 
-<img src="images/dct.png"  />
+<img src="images/dct.png" width="1000" height="500"  />
 
 
 From above plots, `SIFT` & `AKAZE` detector seems to be better candidate in terms of agreement of TTC measuring. In order to dive deeper into the analysis, let's review some cases of failure as below: from observation the failure could occur if:
