@@ -71,10 +71,17 @@ for i=1:length(t)
     Mix(i) = Tx(i) .* Rx(i);        % done by element wise matrix multiplication of Transmit and
 end
 
-figure()
+figure();
+grid on;
 subplot(311);plot(Tx(1:600));title('transmitted signal');
+xlabel('time');
+ylabel('amplitude');
 subplot(312);plot(Rx(1:600));title('received signal');
+xlabel('time');
+ylabel('amplitude');
 subplot(313);plot(Mix(1:600));title('beat signal');
+xlabel('time');
+ylabel('amplitude');
 
 
 
@@ -98,10 +105,12 @@ half_fft1 = fft1(1 : Nr/2);
 
 %plotting the range
 figure ();
-axis ([0 500 0 1]);
-% plot FFT output 
 plot(half_fft1); 
+axis ([0 300 0 0.3]); 
+grid on;
 title( 'Range from FFT');
+xlabel('range');
+ylabel('amplitude');
 
 
 
@@ -129,9 +138,11 @@ RDM = 10*log10(RDM) ;
 %dimensions
 doppler_axis = linspace(-100,100,Nd);
 range_axis = linspace(-200,200,Nr/2)*((Nr/2)/400);
-title( 'FMCW Radar 2D-FFT');
 figure,surf(doppler_axis,range_axis,RDM);
-
+title( 'FMCW Radar 2D-FFT');
+xlabel('speed');
+ylabel('range');
+zlabel('amplitude');
 
 %% CFAR implementation
 
@@ -140,13 +151,13 @@ figure,surf(doppler_axis,range_axis,RDM);
 % *%TODO* :
 %Select the number of Training Cells in both the dimensions.
 T_x = 10;
-T_y = 8;
+T_y = 5;
 
 % *%TODO* :
 %Select the number of Guard Cells in both dimensions around the Cell under 
 %test (CUT) for accurate estimation
 G_x = 4;
-G_y = 4;
+G_y = 2;
 
 % *%TODO* :
 % offset the threshold by SNR value in dB
@@ -224,6 +235,9 @@ end
 %colorbar;
 
 figure,surf(doppler_axis,range_axis,RDM);title( 'FMCW Radar 2D-CFAR');
+xlabel('speed');
+ylabel('range');
+zlabel('binary amplitude');
 colorbar;
 
 

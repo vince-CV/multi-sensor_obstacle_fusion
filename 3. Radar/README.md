@@ -34,10 +34,12 @@ y axis: 1 : Nd     ->     T_y + G_y + 1 : Nd - T_y - G_y
 - In each loop, the value of each train cell in current window are summed, then convert the value from logarithmic to linear by `db2pow`. Then the sum will be averaged among all the train cells in current window, the size of train cells is getting counted when loop over the window.
 - Once the average sum has been generated, the estimated threshold can be converted back into logrithm by using the `pow2db` and added the pre-defined offset.
 - Simple segment to binary value by judging the center cell value is lower (0) or higher (1) than threshold.
-- Recall the method we used to deal with the spatial margin, one more step is to loop over whole space and set all cells which never visited to background (0).
+- Recall the method we used to deal with the spatial margin, one more step is to loop over whole space and set all cells which never visited (neither 0 or 1) to background (0).
 
 <img src="images/2.png" />
 
+The hyperparameters are chosen as:
+`T_x = 10`, `T_y = 5`, `G_x = 4`, `G_y = 2`, and `offset = 0.6`.
 
 
 

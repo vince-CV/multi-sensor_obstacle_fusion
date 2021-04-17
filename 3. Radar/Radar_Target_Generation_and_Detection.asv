@@ -129,9 +129,11 @@ RDM = 10*log10(RDM) ;
 %dimensions
 doppler_axis = linspace(-100,100,Nd);
 range_axis = linspace(-200,200,Nr/2)*((Nr/2)/400);
-title( 'FMCW Radar 2D-FFT');
 figure,surf(doppler_axis,range_axis,RDM);
-
+title( 'FMCW Radar 2D-FFT');
+xlabel('speed');
+ylabel('range');
+zlabel('amplitude');
 
 %% CFAR implementation
 
@@ -140,13 +142,13 @@ figure,surf(doppler_axis,range_axis,RDM);
 % *%TODO* :
 %Select the number of Training Cells in both the dimensions.
 T_x = 10;
-T_y = 8;
+T_y = 5;
 
 % *%TODO* :
 %Select the number of Guard Cells in both dimensions around the Cell under 
 %test (CUT) for accurate estimation
 G_x = 4;
-G_y = 4;
+G_y = 2;
 
 % *%TODO* :
 % offset the threshold by SNR value in dB
@@ -174,7 +176,6 @@ noise_level = zeros(1,1);
 % normalization
 RDM = RDM / max(RDM(:));
 
-A = RDM;
 
 % 2D-CFAR
 for i = T_x + G_x + 1: Nr/2 - T_x - G_x 
@@ -193,8 +194,6 @@ for i = T_x + G_x + 1: Nr/2 - T_x - G_x
          end
          
          threshold = pow2db(sum/cell) +offset;
-         
-         threshold = avg_sum + offset;
          
          if RDM(i, j) < threshold
              RDM(i, j) = 0;
