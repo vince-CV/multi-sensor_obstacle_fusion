@@ -26,14 +26,15 @@
 To implement 2D CFRA, the development's idea is to using 2D slinding window, whose size is determined by the number of train cells and guard cells, to go through every elements in the spatial domain.
 
 - Determine the size of train cell and guard cell; (train cells and guard cell are for noise level estimation).
-- Loop through the 2D window. Note that some cells around the edge cannot be visited due to the window margin. Usually there are two ways to deal with this problem: 1. Padding; 2. Dropping. In this project, the CUT margin are ensured by dropping traning & guard cells from edges. For example, instead of looping through every single cell, it will being looping:
+- Loop through the 2D window. Note that some cells around the edge cannot be visited due to the window margin. Usually there are two ways to deal with this problem: 1. Padding, or 2. Dropping. In this project, the CUT margin are ensured by dropping traning & guard cells from edges. For example, instead of looping through every single cell, it will being looping:
 ```
 x axis: 1 : Nr/2   ->     T_x + G_x + 1  : Nr/2 - T_x - G_x 
-y axis: 1 : Nd     ->      T_y + G_y + 1 : Nd - T_y - G_y
+y axis: 1 : Nd     ->     T_y + G_y + 1 : Nd - T_y - G_y
 ```
-- In each loop, the value of each train cell in current window are summed, then convert the value from logarithmic to linear by `db2pow`.
-- 
-
+- In each loop, the value of each train cell in current window are summed, then convert the value from logarithmic to linear by `db2pow`. Then the sum will be averaged among all the train cells in current window, the size of train cells is getting counted when loop over the window.
+- Once the average sum has been generated, the estimated threshold can be converted back into logrithm by using the `pow2db` and added the pre-defined offset.
+- Simple segment to binary value by judging the center cell value is lower (0) or higher (1) than threshold.
+- Recall the method we used to deal with the spatial margin, one more step is to loop over whole space and set all cells which never visited to background (0).
 
 <img src="images/2.png" />
 
