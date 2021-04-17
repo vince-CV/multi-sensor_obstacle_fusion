@@ -204,11 +204,13 @@ for i = T_x + G_x + 1: Nr/2 - T_x - G_x
          
          threshold = pow2db(sum/cell) +offset;
          
-         if RDM(i, j) < threshold
-             RDM(i, j) = 0;
-         else
+         if RDM(i, j) > threshold
              RDM(i, j) = 1;
+         else
+             RDM(i, j) = 0;
          end
+		 
+		 
     end
 end
 
@@ -221,6 +223,7 @@ end
 
 for i = 1: Nr/2 
      for j = 1 : Nd
+	 
          if ((RDM(i, j) ~= 0) && (RDM(i, j) ~= 1))
              RDM(i, j) = 0;
              

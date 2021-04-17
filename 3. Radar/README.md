@@ -28,7 +28,7 @@ To implement 2D CFRA, the development's idea is to using 2D slinding window, who
 - Determine the size of train cell and guard cell; (train cells and guard cell are for noise level estimation).
 - Loop through the 2D window. Note that some cells around the edge cannot be visited due to the window margin. Usually there are two ways to deal with this problem: 1. Padding, or 2. Dropping. In this project, the CUT margin are ensured by dropping traning & guard cells from edges. For example, instead of looping through every single cell, it will being looping:
 ```
-x axis: 1 : Nr/2   ->     T_x + G_x + 1  : Nr/2 - T_x - G_x 
+x axis: 1 : Nr/2   ->     T_x + G_x + 1 : Nr/2 - T_x - G_x 
 y axis: 1 : Nd     ->     T_y + G_y + 1 : Nd - T_y - G_y
 ```
 - In each loop, the value of each train cell in current window are summed, then convert the value from logarithmic to linear by `db2pow`. Then the sum will be averaged among all the train cells in current window, the size of train cells is getting counted when loop over the window.
@@ -43,14 +43,3 @@ The hyperparameters are chosen as:
 
 
 
-## Dependencies for Running Locally
-* cmake >= 3.7
-  * All OSes: [click here for installation instructions](https://cmake.org/install/)
-* make >= 4.1 (Linux, Mac), 3.81 (Windows)
-  * Linux: make is installed by default on most Linux distros
-  * Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
-  * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
-* gcc/g++ >= 5.4
-  * Linux: gcc / g++ is installed by default on most Linux distros
-  * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
-  * Windows: recommend using [MinGW](http://www.mingw.org/)
