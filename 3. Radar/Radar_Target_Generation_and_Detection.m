@@ -102,7 +102,7 @@ axis ([0 500 0 1]);
 % plot FFT output 
 plot(half_fft1); 
 title( 'FMCW Radar Signal Genertaion & 1D-FFT');
-
+figure ('Name','Range from First FFT')
 
 
 %% RANGE DOPPLER RESPONSE
