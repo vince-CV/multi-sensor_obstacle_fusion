@@ -23,6 +23,17 @@
 4. Perform Range FFT on the received signal to determine the Range
 5. Towards the end, perform the CFAR processing on the output of 2nd FFT to display the target.
 
+To implement 2D CFRA, the development's idea is to using 2D slinding window, whose size is determined by the number of train cells and guard cells, to go through every elements in the spatial domain.
+
+- Determine the size of train cell and guard cell; (train cells and guard cell are for noise level estimation).
+- Loop through the 2D window. Note that some cells around the edge cannot be visited due to the window margin. Usually there are two ways to deal with this problem: 1. Padding; 2. Dropping. In this project, the CUT margin are ensured by dropping traning & guard cells from edges. For example, instead of looping through every single cell, it will being looping:
+```
+x axis: 1 : Nr/2   ->     T_x + G_x + 1  : Nr/2 - T_x - G_x 
+y axis: 1 : Nd     ->      T_y + G_y + 1 : Nd - T_y - G_y
+```
+- In each loop, the value of each train cell in current window are summed, then convert the value from logarithmic to linear by `db2pow`.
+- 
+
 
 <img src="images/2.png" />
 
