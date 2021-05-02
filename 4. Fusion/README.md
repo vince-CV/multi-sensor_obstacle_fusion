@@ -26,7 +26,7 @@ Radar: Doppler effect is important for SF, it gives the velocity  an independent
 ## Project: Unscented Kalman Filter Highway Project
 Code an Unscented Kalman Filter in C++ to track highly non-linear vehicle motion (CTRV model) using Lidar and Radar measurements. 
 
-<img src="images/pipeline.png" width="700" height="400" />
+<img src="images/pipeline.png" />
 
 <img src="images/ukf_highway_tracked.gif" width="700" height="400" />
 
