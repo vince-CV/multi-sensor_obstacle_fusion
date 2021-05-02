@@ -26,4 +26,4 @@
 - Merge data together using the prediction-update cycle of Kalman filters, which accurately track object moving along straight lines. 
 - Build extended and unscented Kalman filters for tracking nonlinear movement.
 - Unscented Kalman Filter to estimate the state of multiple cars on a highway using noisy lidar and radar measurements. 
-<img src="images/ukf.png" />
+<img src="images/ukf.gif" />
